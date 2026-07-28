@@ -1,0 +1,332 @@
+<title>Calling You In — A Climate Justice Print</title>
+<style>
+  :root {
+    --ink: #201c2e;
+    --paper: #eee4cb;
+    --paper-2: #e4d7b3;
+    --marigold: #d98d1f;
+    --ember: #b83a2a;
+    --leaf: #3f6b4a;
+
+    --bg: var(--paper);
+    --bg-2: var(--paper-2);
+    --fg: var(--ink);
+    --fg-soft: #4a4458;
+    --accent: var(--ember);
+    --accent-2: var(--marigold);
+    --accent-3: var(--leaf);
+    --rule: rgba(32, 28, 46, 0.18);
+    --halftone-op: 0.05;
+    --misreg-op: 0.55;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17151f;
+      --bg-2: #211d2c;
+      --fg: #f1e8d2;
+      --fg-soft: #cabfa0;
+      --accent: #f0ae4e;
+      --accent-2: #e2564a;
+      --accent-3: #7db386;
+      --rule: rgba(241, 232, 210, 0.16);
+      --halftone-op: 0.07;
+      --misreg-op: 0.65;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17151f;
+    --bg-2: #211d2c;
+    --fg: #f1e8d2;
+    --fg-soft: #cabfa0;
+    --accent: #f0ae4e;
+    --accent-2: #e2564a;
+    --accent-3: #7db386;
+    --rule: rgba(241, 232, 210, 0.16);
+    --halftone-op: 0.07;
+    --misreg-op: 0.65;
+  }
+  :root[data-theme="light"] {
+    --bg: var(--paper);
+    --bg-2: var(--paper-2);
+    --fg: var(--ink);
+    --fg-soft: #4a4458;
+    --accent: var(--ember);
+    --accent-2: var(--marigold);
+    --accent-3: var(--leaf);
+    --rule: rgba(32, 28, 46, 0.18);
+    --halftone-op: 0.05;
+    --misreg-op: 0.55;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: "Arial Black", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .label {
+    font-family: "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+  .halftone {
+    position: relative;
+  }
+  .halftone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--halftone-op);
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='2' cy='2' r='1.6' fill='%23201c2e'/%3E%3C/svg%3E");
+    background-size: 14px 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .halftone::before { mix-blend-mode: screen; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='2' cy='2' r='1.6' fill='%23f1e8d2'/%3E%3C/svg%3E"); }
+  }
+  :root[data-theme="dark"] .halftone::before { mix-blend-mode: screen; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='2' cy='2' r='1.6' fill='%23f1e8d2'/%3E%3C/svg%3E"); }
+  :root[data-theme="light"] .halftone::before { mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Ccircle cx='2' cy='2' r='1.6' fill='%23201c2e'/%3E%3C/svg%3E"); }
+
+  .torn {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), 96% 100%, 92% calc(100% - 10px), 88% 100%, 84% calc(100% - 16px), 80% 100%, 76% calc(100% - 8px), 72% 100%, 68% calc(100% - 14px), 64% 100%, 60% calc(100% - 10px), 56% 100%, 52% calc(100% - 16px), 48% 100%, 44% calc(100% - 8px), 40% 100%, 36% calc(100% - 14px), 32% 100%, 28% calc(100% - 10px), 24% 100%, 20% calc(100% - 16px), 16% 100%, 12% calc(100% - 8px), 8% 100%, 4% calc(100% - 14px), 0 100%);
+  }
+
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem;
+    padding: 6rem 6vw 5rem;
+    background: var(--bg);
+  }
+  .hero .label { color: var(--accent-3); }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 8vw, 6.4rem);
+    line-height: 0.98;
+    max-width: 14ch;
+    text-wrap: balance;
+    position: relative;
+    color: var(--fg);
+  }
+  .hero h1 span.misreg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: var(--misreg-op);
+  }
+  .hero h1 span.m1 { color: var(--accent); transform: translate(6px, 5px); }
+  .hero h1 span.m2 { color: var(--accent-2); transform: translate(-5px, -4px); }
+  .hero p.sub {
+    max-width: 46ch;
+    font-size: 1.25rem;
+    color: var(--fg-soft);
+    margin: 0;
+  }
+  .hero .scrollcue {
+    margin-top: 1rem;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--fg-soft);
+  }
+
+  section.panel {
+    padding: 5.5rem 6vw 6.5rem;
+    position: relative;
+  }
+  section.panel.a { background: var(--bg-2); }
+  section.panel.b { background: var(--bg); }
+
+  .panel-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .panel-inner.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .panel-inner { transition: none; opacity: 1; transform: none; }
+  }
+
+  .panel h2 {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin: 0 0 1.4rem;
+    text-wrap: balance;
+  }
+  .panel h2 .rule { display: block; width: 3.2rem; height: 5px; background: var(--accent); margin-bottom: 1rem; }
+  .panel p { max-width: 62ch; color: var(--fg); }
+  .panel p + p { margin-top: 1.1rem; }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 2.2rem auto 0;
+  }
+  .stat {
+    border-top: 3px solid var(--accent-2);
+    padding-top: 0.7rem;
+  }
+  .stat .num {
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--accent-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .cap { font-size: 0.92rem; color: var(--fg-soft); margin-top: 0.4rem; }
+
+  .actions { list-style: none; margin: 1.8rem auto 0; padding: 0; max-width: 640px; }
+  .actions li {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1.1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .actions li:first-child { border-top: 1px solid var(--rule); }
+  .actions li::before {
+    content: "→";
+    color: var(--accent);
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900;
+    flex: none;
+  }
+
+  .cta {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 7rem 6vw;
+  }
+  @media (prefers-color-scheme: dark) { .cta { background: var(--accent); color: var(--ink); } }
+  :root[data-theme="dark"] .cta { background: var(--accent); color: var(--ink); }
+  :root[data-theme="light"] .cta { background: var(--ink); color: var(--paper); }
+  .cta h2 {
+    font-size: clamp(1.9rem, 6vw, 3.4rem);
+    max-width: 18ch;
+    margin: 0 auto;
+    text-wrap: balance;
+  }
+
+  footer {
+    padding: 2.2rem 6vw;
+    font-family: "Helvetica Neue", system-ui, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-soft);
+    background: var(--bg-2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+</style>
+
+<div class="hero halftone">
+  <p class="label">An invitation — not an indictment</p>
+  <h1 class="display">
+    <span class="misreg m1" aria-hidden="true">Climate justice is calling you in</span>
+    <span class="misreg m2" aria-hidden="true">Climate justice is calling you in</span>
+    Climate justice is calling you in
+  </h1>
+  <p class="sub">You didn't have to cause this alone to be needed for what comes next. This page is a door held open, not a verdict on where you've been.</p>
+  <p class="scrollcue">keep reading ↓</p>
+</div>
+
+<section class="panel a halftone torn">
+  <div class="panel-inner">
+    <h2><span class="rule"></span>The gap</h2>
+    <p>Global heating isn't shared out evenly, and neither is who pays for it. Researchers estimate the wealthiest tenth of humanity produces roughly half of all carbon emissions — while the floods, fires, droughts, and displacement land first and hardest on Indigenous nations, Black and brown communities, island nations, and the Global South: the people who did the least to cause this, and who have the fewest resources to recover.</p>
+    <p>That distance between who broke it and who's paying for it is the injustice sitting inside the climate crisis. Closing that distance is the actual work. Not just lowering a number — repairing a relationship.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">~50%</div><div class="cap">of global emissions come from the wealthiest 10% of the world's population</div></div>
+      <div class="stat"><div class="num">1st</div><div class="cap">to flood, burn, or lose their land — nations and communities least responsible for causing it</div></div>
+      <div class="stat"><div class="num">0</div><div class="cap">people this project asks you to shame. Guilt doesn't build coalitions. Invitations do.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel b halftone torn">
+  <div class="panel-inner">
+    <h2><span class="rule"></span>Calling in, not calling out</h2>
+    <p>Youth climate organizer Xiye Bastida writes about calling people <em>into</em> the climate movement instead of calling them out of it — building something wide enough for millions of imperfect, still-learning people, instead of a clean room reserved for a righteous few.</p>
+    <p>That's the spirit here. If you've felt too behind, too implicated, too unqualified, or too tired to start — there is no entrance exam. You're already in. Bring what you have.</p>
+  </div>
+</section>
+
+<section class="panel a halftone torn">
+  <div class="panel-inner">
+    <h2><span class="rule"></span>Art goes first</h2>
+    <p>Change rarely starts in a courtroom or a spreadsheet. It starts in a song, a mural, a meme forwarded between friends, a poem read out loud. Artist and cultural strategist Favianna Rodriguez argues that culture moves before policy does — we can't legislate what we haven't first imagined together.</p>
+    <p>This page is a small piece of that work. Not a lecture — a poster. Not a report — a wall you're meant to stop in front of.</p>
+  </div>
+</section>
+
+<section class="panel b halftone torn">
+  <div class="panel-inner">
+    <h2><span class="rule"></span>The call</h2>
+    <p>Here's what calling in looks like, in practice:</p>
+    <ul class="actions">
+      <li>Find out whose land you live and work on, and who's already organizing there — join first, found second.</li>
+      <li>Put money, time, or a real skill behind Indigenous-led and frontline-led climate justice organizations.</li>
+      <li>Make something — a post, a print, a playlist, a conversation — that makes this feel true, not just correct.</li>
+      <li>Talk to the person in your life who isn't in yet. Call them in. Leave the door open behind you.</li>
+      <li>Show up again next week. This isn't a one-time signature. It's a practice.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta halftone">
+  <h2 class="display">The movement doesn't need you perfect.<br>It needs you present.</h2>
+</div>
+
+<footer>
+  <span>A climate justice print — made with Claude Code</span>
+  <span>[Your Name] · [Course] · 2026</span>
+</footer>
+
+<script>
+  (function () {
+    var panels = document.querySelectorAll('.panel-inner');
+    if (!('IntersectionObserver' in window)) {
+      panels.forEach(function (p) { p.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    panels.forEach(function (p) { io.observe(p); });
+  })();
+</script>
