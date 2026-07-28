@@ -139,6 +139,25 @@
   }
   .hero h1 span.m1 { color: var(--accent); transform: translate(6px, 5px); }
   .hero h1 span.m2 { color: var(--accent-2); transform: translate(-5px, -4px); }
+  .hero .byline {
+    font-family: "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.68rem;
+    color: var(--fg-soft);
+    margin: 0 0 -0.6rem;
+  }
+  .hero p.thesis {
+    max-width: 38ch;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    border-left: 4px solid var(--accent);
+    padding-left: 1.1rem;
+    margin: 0;
+    color: var(--fg);
+  }
   .hero p.sub {
     max-width: 46ch;
     font-size: 1.25rem;
@@ -219,6 +238,44 @@
     font-weight: 900;
     flex: none;
   }
+  .actions.secondary li {
+    font-size: 0.95rem;
+    color: var(--fg-soft);
+    padding: 0.85rem 0;
+  }
+  .actions.secondary li::before { opacity: 0.7; font-size: 0.85rem; }
+  .actions.secondary a { color: var(--accent-3); }
+
+  .panel p.secondary-label {
+    margin-top: 3.2rem;
+    margin-bottom: 0;
+    color: var(--fg-soft);
+  }
+
+  .primary-cta {
+    margin-top: 1.8rem;
+    padding: 2rem 2.2rem;
+    border: 3px solid var(--accent);
+  }
+  .primary-cta .label { color: var(--accent); display: block; margin-bottom: 0.7rem; }
+  .primary-cta h3 {
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+    margin: 0 0 1rem;
+  }
+  .primary-cta .script {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--fg);
+    border-left: 3px solid var(--accent-2);
+    padding-left: 1rem;
+    margin: 1.2rem 0;
+    max-width: 56ch;
+  }
+  .primary-cta .fine {
+    font-size: 0.92rem;
+    color: var(--fg-soft);
+    margin-top: 1rem;
+  }
 
   .cta {
     background: var(--ink);
@@ -243,22 +300,21 @@
     letter-spacing: 0.04em;
     color: var(--fg-soft);
     background: var(--bg-2);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.6rem;
+    text-align: center;
   }
 
   ::selection { background: var(--accent); color: var(--paper); }
 </style>
 
 <div class="hero halftone">
+  <p class="byline">By Alexander Trounce</p>
   <p class="label">An invitation — not an indictment</p>
   <h1 class="display">
     <span class="misreg m1" aria-hidden="true">Climate justice is calling you in</span>
     <span class="misreg m2" aria-hidden="true">Climate justice is calling you in</span>
     Climate justice is calling you in
   </h1>
+  <p class="thesis">Climate justice is the fight to make sure the people who did the least to cause this crisis stop paying the most for it.</p>
   <p class="sub">You didn't have to cause this alone to be needed for what comes next. This page is a door held open, not a verdict on where you've been.</p>
   <p class="scrollcue">keep reading ↓</p>
 </div>
@@ -295,12 +351,21 @@
 <section class="panel b halftone torn">
   <div class="panel-inner">
     <h2><span class="rule"></span>The call</h2>
-    <p>Here's what calling in looks like, in practice:</p>
-    <ul class="actions">
-      <li>Find out whose land you live and work on, and who's already organizing there — join first, found second.</li>
-      <li>Put money, time, or a real skill behind Indigenous-led and frontline-led climate justice organizations.</li>
+    <p>Not five things. One thing, and you can do it before you close this tab.</p>
+
+    <div class="primary-cta">
+      <span class="label">Do this now — 60 seconds</span>
+      <h3 class="display">Call one person in.</h3>
+      <p>Think of someone in your life who isn't in yet — not a denier, just someone who cares and hasn't found a way in. Text them. Say a version of this:</p>
+      <p class="script">"I've been reading about climate justice — not just the weather part, the part about who's actually paying for it. I don't totally know what to do yet either. Want to figure it out with me?"</p>
+      <p class="fine">That's it. You're not recruiting, converting, or lecturing. You're widening the door by exactly one person — and asking them to widen it again.</p>
+    </div>
+
+    <p class="label secondary-label">If you want to go further</p>
+    <ul class="actions secondary">
+      <li>Find out <a href="https://native-land.ca/" target="_blank" rel="noopener">whose land you live on</a>, and who's already organizing there — join first, found second.</li>
+      <li>Back Indigenous-led and frontline-led groups with money, time, or a real skill — like the <a href="https://www.ienearth.org/" target="_blank" rel="noopener">Indigenous Environmental Network</a> or <a href="https://ndncollective.org/" target="_blank" rel="noopener">NDN Collective</a>.</li>
       <li>Make something — a post, a print, a playlist, a conversation — that makes this feel true, not just correct.</li>
-      <li>Talk to the person in your life who isn't in yet. Call them in. Leave the door open behind you.</li>
       <li>Show up again next week. This isn't a one-time signature. It's a practice.</li>
     </ul>
   </div>
@@ -311,8 +376,7 @@
 </div>
 
 <footer>
-  <span>A climate justice print — made with Claude Code</span>
-  <span>[Your Name] · [Course] · 2026</span>
+  <span>A climate justice print by Alexander Trounce · 2026</span>
 </footer>
 
 <script>
